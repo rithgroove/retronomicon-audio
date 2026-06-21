@@ -57,3 +57,10 @@ cmake --build build-openal --target retronomicon-audio-openal
    and raw input.
 5. Add a fake audio player test in `retronomicon` core before changing the
    `IAudioPlayer` contract.
+
+## New Backend Rule
+
+New audio backends should expose one target named
+`retronomicon-audio-<backend>` and implement `retronomicon::audio::IAudioPlayer`.
+Keep backend-specific dependency headers out of `retronomicon/include` so the
+core remains portable.
